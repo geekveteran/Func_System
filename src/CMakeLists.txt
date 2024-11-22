@@ -1,12 +1,12 @@
-﻿# CMakeList.txt : CMake project for Func_Sys, include source and define
+﻿# CMakeList.txt : CMake project for FunctionSystem, include source and define
 # project specific logic here.
 #
 
 # Create executable target
-add_executable(Func_Sys main.cpp)
+add_executable(FunctionSystem main.cpp)
 
 # Add sources with module interface
-target_sources(Func_Sys
+target_sources(FunctionSystem
     PRIVATE
         main.cpp
     PUBLIC FILE_SET CXX_MODULES
@@ -18,11 +18,11 @@ target_sources(Func_Sys
 
 # Add compiler-specific flags for module support
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    target_compile_options(Func_Sys PRIVATE -fmodules-ts)
+    target_compile_options(FunctionSystem PRIVATE -fmodules-ts)
 elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-    target_compile_options(Func_Sys PRIVATE -fmodules)
+    target_compile_options(FunctionSystem PRIVATE -fmodules)
 elseif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-    target_compile_options(Func_Sys PRIVATE /std:c++23 /experimental:module)
+    target_compile_options(FunctionSystem PRIVATE /std:c++23 /experimental:module)
 endif()
 
-# TODO: Add Func_Syss and install targets if needed.
+# TODO: Add FunctionSystems and install targets if needed.
