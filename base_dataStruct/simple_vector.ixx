@@ -1,17 +1,16 @@
 export module simple_vector;
 
-import <stdexcept>;
-
-export class simple_vector {
+export template <typename T>
+class simple_vector {
 private:
-    int* data;        // Pointer to the dynamic array
-    size_t size;      // Current number of elements
+    T* data;        // Pointer to the dynamic array
+    size_t size;    // Current number of elements
     size_t capacity;  // Total capacity of the array
 
     // Resize the array when capacity is reached
     void resize() {
         capacity = capacity * 2; // Double the capacity
-        int* newData = new int[capacity];
+        T* newData = new T[capacity];
         for (size_t i = 0; i < size; ++i) {
             newData[i] = data[i];
         }
@@ -21,8 +20,8 @@ private:
 
 public:
     // Constructor
-    simple_vector(size_t initialCapacity = 4)
-        : data(new int[initialCapacity]), size(0), capacity(initialCapacity) {}
+    explicit simple_vector(size_t initialCapacity = 4)
+        : data(new T[initialCapacity]), size(0), capacity(initialCapacity) {}
 
     // Destructor
     ~simple_vector() {
@@ -30,7 +29,7 @@ public:
     }
 
     // Add an element to the end
-    void push_back(int value) {
+    void push_back(const T& value) {
         if (size == capacity) {
             resize();
         }
@@ -38,10 +37,7 @@ public:
     }
 
     // Access element at index
-    int& operator[](size_t index) {
-        if (index >= size) {
-            throw std::out_of_range("Index out of range");
-        }
+    T& operator[](size_t index) {
         return data[index];
     }
 
@@ -53,5 +49,10 @@ public:
     // Get the capacity of the array
     size_t getCapacity() const {
         return capacity;
+    }
+
+    // Optional: Access element at index (const version)
+    const T& operator[](size_t index) const {
+        return data[index];
     }
 };

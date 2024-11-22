@@ -1,9 +1,16 @@
 ﻿# CMake file for src directory
 
 # Add the library (including all module files)
-add_library(base_dataStruct STATIC
-    simple_vector.ixx
-    utilities.ixx
+add_library(base_dataStruct STATIC)
+
+# Add module files to the library using FILE_SET
+target_sources(base_dataStruct
+    PUBLIC FILE_SET CXX_MODULES
+    TYPE
+        CXX_MODULES
+    FILES
+        simple_vector.ixx
+        utilities.ixx
 )
 
 # Enable module support

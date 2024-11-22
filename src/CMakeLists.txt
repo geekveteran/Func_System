@@ -5,17 +5,6 @@
 # Create executable target
 add_executable(FunctionSystem main.cpp)
 
-# Add sources with module interface
-target_sources(FunctionSystem
-    PRIVATE
-        main.cpp
-    PUBLIC FILE_SET CXX_MODULES
-    TYPE
-        CXX_MODULES
-    FILES
-        math_operations.ixx
-)
-
 # Add compiler-specific flags for module support
 if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
     target_compile_options(FunctionSystem PRIVATE -fmodules-ts)

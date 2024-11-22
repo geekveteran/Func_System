@@ -1,5 +1,7 @@
 export module utilities;
 
+#include <iostream>
+
 export namespace Utilities {
     // A simple utility function to print arrays
     void printArray(const int* arr, size_t size) {
