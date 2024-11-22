@@ -25,4 +25,8 @@ elseif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     target_compile_options(FunctionSystem PRIVATE /std:c++23 /experimental:module)
 endif()
 
+
+# Link the library to the executable
+target_link_libraries(FunctionSystem PRIVATE base_dataStruct)
+
 # TODO: Add FunctionSystems and install targets if needed.
