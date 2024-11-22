@@ -4,21 +4,20 @@ export template <typename Data>
 class meta_funcData {
 private:
 	const char* m_dataName;
-	Data* m_data;
+	Data m_data;
 
 public:
-	explicit meta_funcData(const char* dataName, Data data)
-		:m_dataName(dataName), m_data(new Data) {}
+	explicit meta_funcData(const char* dataName, const Data& data)
+		:m_dataName(dataName), m_data(data) {}
 
 	~meta_funcData() {
-		delete m_data;
 	}
 	
 	const char* get_dataName() {
 		return m_dataName;
 	}
 
-	Data get_data() {
-		return *m_data;
+	const Data& get_data() {
+		return m_data;
 	}
 };
