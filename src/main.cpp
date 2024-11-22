@@ -1,4 +1,5 @@
 import simple_vector;
+import meta_funcData;
 
 #include <iostream>
 
@@ -9,7 +10,9 @@ int main() {
     vec_int.push_back(30);
     std::cout << "Integer vector size: " << vec_int.getSize() << std::endl;
     std::cout << "Element at index 1: " << vec_int[1] << std::endl;
-
+    int num = 32;
+    meta_funcData<int> data("int",num);
+    std::cout << data.get_data() << data.get_dataName();
     // Example with strings
     simple_vector<std::string> vec_str;
     vec_str.push_back("Hello");

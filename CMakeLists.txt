@@ -4,4 +4,5 @@
 
 # Include sub-projects.
 add_subdirectory("base_dataStruct")
+add_subdirectory("meta_data")
 add_subdirectory ("src")
