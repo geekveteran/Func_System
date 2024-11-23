@@ -1,6 +1,4 @@
-﻿# CMake file for src directory
-
-# Add the library (including all module files)
+﻿# Add the library (including all module files)
 add_library(meta_data STATIC)
 
 # Add module files to the library using FILE_SET

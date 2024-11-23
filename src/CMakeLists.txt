@@ -17,5 +17,6 @@ endif()
 
 # Link the library to the executable
 target_link_libraries(FunctionSystem PRIVATE base_dataStruct)
-
+target_link_libraries(FunctionSystem PRIVATE meta_data)
+target_link_libraries(FunctionSystem PRIVATE meta_func)
 # TODO: Add FunctionSystems and install targets if needed.
