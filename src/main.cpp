@@ -16,7 +16,6 @@ int main() {
     int a = data.get_data();
     std::cout << a << data.get_dataName();
     // Example with strings
-    meta_func<int> func_data("int", num);
     simple_vector<std::string> vec_str;
     vec_str.push_back("Hello");
     vec_str.push_back("World");

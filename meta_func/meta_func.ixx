@@ -1,25 +1,34 @@
 export module meta_func;
 
+import simple_vector;
+import meta_funcData;
 
 
-export template <typename Data>
+export template <typename intPutData, typename outPutData>
 class meta_func {
 private:
 	const char* m_funcName;
-	Data m_data;
+	simple_vector<intPutData>* m_inPutData;
+	outPutData* m_outPutData;
 
 public:
-	explicit meta_func(const char* dataName, const Data& data)
-		:m_funcName(dataName), m_data(data) {}
+	explicit meta_func(const char* dataName, const simple_vector<intPutData>& iData,
+	const outPutData& oData)
+		:m_funcName(dataName),
+		 m_inPutData(new simple_vector<intPutData>(iData)),
+		 m_outPutData(new outPutData(oData)) {}
 
-	~meta_func() {
-	}
-	
-	const char* get_dataName() {
+	// Destructor
+    virtual ~meta_func() {
+        delete m_inPutData;
+        delete m_outPutData;
+    }
+
+	virtual const char* get_dataName() {
 		return m_funcName;
 	}
 
-	const Data& get_data() {
-		return m_data;
+	virtual const simple_vector<intPutData>* get_intPutData() {
+		return m_inPutData;
 	}
 };
