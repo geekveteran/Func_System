@@ -9,7 +9,7 @@ private:
 public:
 	explicit meta_funcData() {
 		m_dataName = "None";
-		m_data = new int(0);
+		m_data = nullptr;
 	}
 
 

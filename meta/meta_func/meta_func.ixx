@@ -12,8 +12,14 @@ private:
 	outPutData* m_outPutData;
 
 public:
-	explicit meta_func(const char* funcName, const simple_vector<intPutData>& iData,
-	const outPutData& oData)
+	explicit meta_func()
+	{
+		m_funcName = "noneFunc";
+		m_inPutData = nullptr;
+		m_outPutData = nullptr;
+	}
+
+	explicit meta_func(const char* funcName, const simple_vector<intPutData>& iData, const outPutData& oData)
 		:m_funcName(funcName),
 		 m_inPutData(new simple_vector<intPutData>(iData)),
 		 m_outPutData(new outPutData(oData)) {}
