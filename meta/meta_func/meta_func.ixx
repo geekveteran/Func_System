@@ -12,9 +12,9 @@ private:
 	outPutData* m_outPutData;
 
 public:
-	explicit meta_func(const char* dataName, const simple_vector<intPutData>& iData,
+	explicit meta_func(const char* funcName, const simple_vector<intPutData>& iData,
 	const outPutData& oData)
-		:m_funcName(dataName),
+		:m_funcName(funcName),
 		 m_inPutData(new simple_vector<intPutData>(iData)),
 		 m_outPutData(new outPutData(oData)) {}
 
@@ -30,5 +30,9 @@ public:
 
 	virtual const simple_vector<intPutData>* get_intPutData() {
 		return m_inPutData;
+	}
+
+	virtual outPutData* get_outPutData() {
+		return m_outPutData;
 	}
 };
