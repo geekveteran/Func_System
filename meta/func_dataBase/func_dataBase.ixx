@@ -6,11 +6,11 @@ export template <typename Func>
 class func_dataBase {
 private:
 	const char* m_funcDBName;
-	simple_vector<Func>* m_funcVec;
+	simple_vector<Func*>* m_funcVec;
 
 public:
 	explicit func_dataBase() {
-		m_funcDBName = "NoneDB";
+		m_funcDBName = "funcDB";
 		m_funcVec = nullptr;
 	}
 

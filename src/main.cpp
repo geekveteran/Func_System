@@ -1,6 +1,7 @@
 import simple_vector;
 import meta_funcData;
 import meta_func;
+import func_dataBase;
 
 #include <iostream>
 
@@ -20,12 +21,15 @@ int main() {
     int num = 32;
     meta_funcData<int> data("int",num);
     int* a = data.get_data();
-    std::cout << a << data.get_dataName();
     simple_vector<meta_funcData<int>> data_vec;
     const char* funcName = "func";
-    meta_func<meta_funcData<int>, meta_funcData<int>> func(funcName, data_vec, data);
+    using BaseFunc = meta_func<meta_funcData<int>, meta_funcData<int>>;
+    BaseFunc func(funcName, data_vec, data);
     func.get_dataName();
     func.get_outPutData();
+    simple_vector <BaseFunc> s_vec;
+    func_dataBase<BaseFunc> db;
+    std::cout << db.get_funcDBName();
     return 0;
 
 }
