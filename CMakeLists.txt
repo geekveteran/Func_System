@@ -4,4 +4,5 @@
 
 # Include sub-projects.
 add_subdirectory("meta")
+add_subdirectory("func")
 add_subdirectory ("src")
