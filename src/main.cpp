@@ -2,6 +2,7 @@ import simple_vector;
 import meta_funcData;
 import meta_func;
 import func_dataBase;
+import base_func;
 
 #include <iostream>
 
@@ -22,12 +23,25 @@ int main() {
     meta_funcData<int> data("int",num);
     int* a = data.get_data();
     simple_vector<meta_funcData<int>> data_vec;
-    const char* funcName = "func";
+    const char* funName = "func";
     using BaseFunc = meta_func<meta_funcData<int>, meta_funcData<int>>;
-    BaseFunc func(funcName, data_vec, data);
-    func.get_dataName();
-    func.get_outPutData();
-    simple_vector <BaseFunc> s_vec;
+    BaseFunc abb;
+    BaseFunc* func = new BaseFunc(funName, data_vec, data);
+    const char* base_name = "base";
+    simple_vector<int> inputData;
+    int outputData = 42;
+    BaseFunc dc(base_name, data_vec, data);
+    func->get_dataName();
+    func->get_outPutData();
+// Assuming simple_vector<int> is available and can be constructed like this:
+
+// Create an instance of derived_meta_func with specific values
+    BaseFunc* bfunc = new BaseFunc(funName, data_vec, data);
+    std::cout<< bfunc->get_dataName()<< std::endl;
+    std::cout<< bfunc->get_intPutData() << std::endl;
+    using app = add_func<meta_funcData<int>, meta_funcData<int>>;
+    app* int_func = new app (base_name, data_vec, data);
+    std::cout<< int_func->get_dataName() << std::endl;
     func_dataBase<BaseFunc> db;
     std::cout << db.get_funcDBName();
     return 0;
