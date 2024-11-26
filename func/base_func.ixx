@@ -4,26 +4,29 @@ import simple_vector;
 import meta_funcData;
 import meta_func;
 
-export template <typename inPutData, typename outPutData>
-class add_func : public meta_func<inPutData, outPutData> {
+
+export template <typename Data>
+class add_func : public meta_func<Data, Data> {
+    using m_funcData = meta_funcData<Data>;
+    using m_func = meta_func<meta_funcData<Data>,meta_funcData<Data>>;
 private:
     void add() {
+        //simple_vector<m_funcData> vec = m_func::get_intPutData();
+        Data* data = this->get_outPutData();
     }
 public:
     // Default constructor
     add_func()
-        : meta_func<inPutData, outPutData>() 
+        : meta_func<Data, Data>() 
         {
-            add();
         }
 
     // Parameterized constructor
     add_func(const char* funcName, 
-                      const simple_vector<inPutData>& iData, 
-                      const outPutData& oData)
-        : meta_func<inPutData, outPutData>(funcName, iData, oData)
+                      const simple_vector<Data>& iData, 
+                      const Data& oData)
+        : meta_func<Data, Data>(funcName, iData, oData)
     {
-            add();
     }
 
     // Destructor

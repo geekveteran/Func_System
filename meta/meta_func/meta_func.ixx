@@ -6,10 +6,12 @@ import meta_funcData;
 
 export template <typename intPutData, typename outPutData>
 class meta_func {
+    using iData = meta_funcData<intPutData>;
+    using oData = meta_funcData<outPutData>;
 private:
     const char* m_funcName;
-    simple_vector<intPutData>* m_inPutData; // Assuming simple_vector is user-defined
-    outPutData* m_outPutData;
+    simple_vector<iData>* m_inPutData; // Assuming simple_vector is user-defined
+    oData* m_outPutData;
 
 public:
     // Default constructor
@@ -19,10 +21,10 @@ public:
           m_outPutData(nullptr) {}
 
     // Parameterized constructor
-    meta_func(const char* funcName, const simple_vector<intPutData>& iData, const outPutData& oData)
+    meta_func(const char* funcName, const simple_vector<iData>& inData, const oData& outData)
         : m_funcName(funcName),
-          m_inPutData(new simple_vector<intPutData>(iData)),
-          m_outPutData(new outPutData(oData)) {}
+          m_inPutData(new simple_vector<iData>(inData)),
+          m_outPutData(new oData(outData)) {}
 
     // Destructor
     virtual ~meta_func() {
@@ -36,12 +38,12 @@ public:
     }
 
     // Accessor for input data
-    virtual const simple_vector<intPutData>* get_intPutData() const {
+    virtual simple_vector<iData>* get_intPutData() const {
         return m_inPutData;
     }
 
     // Accessor for output data
-    virtual outPutData* get_outPutData() const {
+    virtual oData* get_outPutData() const {
         return m_outPutData;
     }
 };
