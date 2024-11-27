@@ -19,7 +19,10 @@ public:
 		 m_funcVec(new simple_vector<Func> (funcVec)) {}
 
 	~func_dataBase() {
-		delete m_funcVec;
+		if (m_funcVec)
+		{
+			delete m_funcVec;
+		}
 	}
 	
 	const char* get_funcDBName() {

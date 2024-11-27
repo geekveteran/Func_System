@@ -22,6 +22,8 @@ int main() {
 
     int num = 32;
     meta_funcData<int> data("int",num);
+    int oNum = 64;
+    meta_funcData<int> m_data("int", oNum);
     int* a = data.get_data();
     simple_vector<meta_funcData<int>> data_vec;
     data_vec.push_back(data);
@@ -30,8 +32,9 @@ int main() {
     BaseFunc abb;
     std::cout<< abb.get_dataName();
     using addFunc = add_func<int>;
-    addFunc* add_Func = new addFunc (funName, data_vec, data);
-    add_Func->compute();
+    BaseFunc add_Func = addFunc (funName, data_vec, m_data);
+    add_Func.compute();
+    std::cout<< add_Func.get_dataName();
     return 0;
 
 }

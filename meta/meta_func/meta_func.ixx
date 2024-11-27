@@ -28,8 +28,14 @@ public:
 
     // Destructor
     virtual ~meta_func() {
-        delete m_inPutData;
-        delete m_outPutData;
+        if (m_inPutData)
+        {
+            delete m_inPutData;
+        }
+        if (m_outPutData)
+        {
+            delete m_outPutData;
+        }
     }
 
     // Accessor for function name

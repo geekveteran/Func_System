@@ -25,7 +25,10 @@ public:
 
     // Destructor
     ~simple_vector() {
-        delete[] data;
+            if (this->data != nullptr)
+            {
+                delete[] data;
+            }
     }
 
     // Add an element to the end

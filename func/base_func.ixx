@@ -12,11 +12,13 @@ private:
     void add()
     {
         simple_vector<m_funcData>* vec = this->get_intPutData();
+        m_funcData res = *(this->get_outPutData());
         if (vec != nullptr)
         {
            for (auto it = vec->begin(); it != vec->end(); ++it)
            {
                 m_funcData& data = *it;
+                res = res + data;
            }
         }
     }
