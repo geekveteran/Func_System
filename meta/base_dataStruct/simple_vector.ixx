@@ -41,6 +41,11 @@ public:
         return data[index];
     }
 
+    // Access element at index (const version)
+    const T& operator[](size_t index) const {
+        return data[index];
+    }
+
     // Get the number of elements
     size_t getSize() const {
         return size;
@@ -51,8 +56,23 @@ public:
         return capacity;
     }
 
-    // Optional: Access element at index (const version)
-    const T& operator[](size_t index) const {
-        return data[index];
+    // Iterator to the beginning
+    T* begin() {
+        return data;
+    }
+
+    // Iterator to the end
+    T* end() {
+        return data + size;
+    }
+
+    // Const iterator to the beginning
+    const T* begin() const {
+        return data;
+    }
+
+    // Const iterator to the end
+    const T* end() const {
+        return data + size;
     }
 };

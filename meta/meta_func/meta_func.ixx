@@ -46,6 +46,8 @@ public:
     virtual oData* get_outPutData() const {
         return m_outPutData;
     }
+
+    virtual void compute() {}
 };
 
 
