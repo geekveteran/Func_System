@@ -8,7 +8,6 @@ import meta_func;
 export template <typename Data>
 class add_func : public meta_func<Data, Data> {
     using m_funcData = meta_funcData<Data>;
-    using m_func = meta_func<meta_funcData<Data>,meta_funcData<Data>>;
 private:
     void add()
     {
@@ -30,8 +29,8 @@ public:
 
     // Parameterized constructor
     add_func(const char* funcName, 
-                      const simple_vector<Data>& iData, 
-                      const Data& oData)
+                      const simple_vector<m_funcData>& iData, 
+                      const m_funcData& oData)
         : meta_func<Data, Data>(funcName, iData, oData) {}
     // Destructor
     ~add_func() {

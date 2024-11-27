@@ -24,13 +24,14 @@ int main() {
     meta_funcData<int> data("int",num);
     int* a = data.get_data();
     simple_vector<meta_funcData<int>> data_vec;
+    data_vec.push_back(data);
     const char* funName = "func";
     using BaseFunc = meta_func<int, int>;
     BaseFunc abb;
     std::cout<< abb.get_dataName();
-    using addFunc = add_func<meta_funcData<int>>;
-    addFunc sa;
-    std::cout<<sa.get_dataName();
+    using addFunc = add_func<int>;
+    addFunc* add_Func = new addFunc (funName, data_vec, data);
+    add_Func->compute();
     return 0;
 
 }
