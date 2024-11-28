@@ -40,7 +40,7 @@ public:
 
     virtual void compute() override
     {
-        add();
+        //add();
         return;
     }
 
