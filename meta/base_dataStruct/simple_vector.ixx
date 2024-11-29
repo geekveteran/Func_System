@@ -25,7 +25,7 @@ public:
 
     // Destructor
     ~simple_vector() {
-            if (this->data != nullptr)
+           if (this->data != nullptr)
             {
                 delete[] data;
             }

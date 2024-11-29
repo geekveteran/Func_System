@@ -17,8 +17,8 @@ public:
     // Default constructor
     meta_func()
         : m_funcName("noneFunc"),
-          m_inPutData(nullptr),
-          m_outPutData(nullptr) {}
+          m_inPutData(new simple_vector<iData> ()),
+          m_outPutData(new oData ()) {}
 
     // Parameterized constructor
     meta_func(const char* funcName, const simple_vector<iData>& inData, const oData& outData)

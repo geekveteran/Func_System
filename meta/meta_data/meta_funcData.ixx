@@ -10,7 +10,7 @@ private:
 public:
 	explicit meta_funcData() {
 		m_dataName = "None";
-		m_data = (Data*)malloc(sizeof(Data));
+		m_data = new Data(); 
 	}
 
 	explicit meta_funcData(const char* dataName, const Data& data)
@@ -45,11 +45,14 @@ public:
         return ptr;
     }
 
-	    void operator delete(void* ptr) {
+	void operator delete(void* ptr) {
+		if (!ptr)
+		{
         ::operator delete(ptr);  // Use global delete
+		}
     }
 
-	    void* operator new[](size_t size, const meta_funcData& data) {
+	    void* operator new[](size_t size) {
         void* ptr = ::operator new[](size);
         return ptr;
     }
