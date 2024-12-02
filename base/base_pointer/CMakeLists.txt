@@ -9,7 +9,7 @@ target_sources(base_pointer
     TYPE
         CXX_MODULES
     FILES
-        simple_pointer.ixx
+        "base_pointer.ixx"
 )
 
 # Enable module support

@@ -1,5 +1,6 @@
 export module meta_funcData;
 
+import base_pointer;
 
 export template <typename Data>
 class meta_funcData {

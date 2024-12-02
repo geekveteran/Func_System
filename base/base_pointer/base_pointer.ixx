@@ -1,31 +1,31 @@
 export module base_pointer;
 // Custom implementation of a Unique Pointer
-template <typename T>
-class UniquePointer {
+export template <typename T>
+class unique_pointer {
 private:
     T* ptr; // Raw pointer to manage
 
 public:
     // Constructor
-    explicit UniquePointer(T* resource = nullptr) : ptr(resource) {}
+    explicit unique_pointer(T* resource = nullptr) : ptr(resource) {}
 
     // Destructor
-    ~UniquePointer() {
+    ~unique_pointer() {
         delete ptr;
     }
 
     // Delete copy constructor and copy assignment to ensure unique ownership
-    UniquePointer(const UniquePointer&) = delete;
-    UniquePointer& operator=(const UniquePointer&) = delete;
+    unique_pointer(const unique_pointer&) = delete;
+    unique_pointer& operator=(const unique_pointer&) = delete;
 
     // Move constructor
-    UniquePointer(UniquePointer&& other) noexcept : ptr(nullptr) {
+    unique_pointer(unique_pointer&& other) noexcept : ptr(nullptr) {
         ptr = other.ptr;  // Transfer ownership
         other.ptr = nullptr;
     }
 
     // Move assignment operator
-    UniquePointer& operator=(UniquePointer&& other) noexcept {
+    unique_pointer& operator=(unique_pointer&& other) noexcept {
         if (this != &other) {
             delete ptr;          // Clean up existing resource
             ptr = other.ptr;     // Transfer ownership

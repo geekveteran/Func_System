@@ -17,6 +17,7 @@ endif()
 
 # Link the library to the executable
 target_link_libraries(FunctionSystem PRIVATE base_dataStruct)
+target_link_libraries(FunctionSystem PRIVATE base_pointer)
 target_link_libraries(FunctionSystem PRIVATE meta_data)
 target_link_libraries(FunctionSystem PRIVATE meta_func)
 target_link_libraries(FunctionSystem PRIVATE func_dataBase)
