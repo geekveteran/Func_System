@@ -3,6 +3,8 @@
 #
 
 # Include sub-projects.
+add_subdirectory("base")
 add_subdirectory("meta")
 add_subdirectory("func")
+add_subdirectory("database")
 add_subdirectory ("src")
