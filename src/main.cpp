@@ -40,7 +40,7 @@ int main() {
     int oNum = 64;
     meta_funcData<int> m_data("int", oNum);
     int* a = data.get_data();
-    data_vec.push_back(meta_funcData<int>("int",32));
+    //data_vec.push_back(meta_funcData<int>("int",32));
     //const char* funName = "func";
     //using BaseFunc = meta_func<int, int>;
     //BaseFunc abb;
