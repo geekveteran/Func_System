@@ -17,6 +17,7 @@ target_compile_features(meta_func PUBLIC cxx_std_23)
 target_compile_options(meta_func PRIVATE -fmodules-ts)
 
 target_link_libraries(meta_func PRIVATE base_dataStruct)
+target_link_libraries(meta_func PRIVATE base_pointer)
 target_link_libraries(meta_func PRIVATE meta_data)
 
 

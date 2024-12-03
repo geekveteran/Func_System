@@ -14,5 +14,5 @@ target_sources(func_dataBase
 target_compile_features(func_dataBase PUBLIC cxx_std_23)
 target_compile_options(func_dataBase PRIVATE -fmodules-ts)
 
-
+target_link_libraries(func_dataBase PRIVATE base_dataStruct)
 

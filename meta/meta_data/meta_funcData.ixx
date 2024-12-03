@@ -4,30 +4,32 @@ import base_pointer;
 
 export template <typename Data>
 class meta_funcData {
+	using u_dataPt = unique_pointer<Data>;
 private:
 	const char* m_dataName;
-	Data* m_data;
+	u_dataPt m_data;
 
 public:
 	explicit meta_funcData() {
 		m_dataName = "None";
-		m_data = new Data(); 
+		m_data = u_dataPt(); 
 	}
 
 	explicit meta_funcData(const char* dataName, const Data& data)
-		:m_dataName(dataName),
-		 m_data(new Data (data)) {}
+	{
+		m_dataName = dataName;
+		Data * dataPointer = new Data(data);
+		m_data = u_dataPt(dataPointer);
+	}
 
 	~meta_funcData() {
-		if (m_data != nullptr)
-			delete m_data;
 	}
 	
-	const char* get_dataName() {
+	const char* get_dataName() const{
 		return m_dataName;
 	}
 
-	Data* get_data() {
+	u_dataPt& get_data()  {
 		return m_data;
 	}
 	
@@ -35,7 +37,7 @@ public:
 	meta_funcData operator+(const meta_funcData& other) const {
 		// Combine the dataName and add the values of m_data
 		const char* newName = "Combined"; // Simplified naming logic
-		Data combinedData = (m_data ? *m_data : Data()) +
+		u_dataPt combinedData = (m_data ? *m_data : Data()) +
 			(other.m_data ? *other.m_data : Data());
 		return meta_funcData(newName, combinedData);
 	}

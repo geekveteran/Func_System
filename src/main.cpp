@@ -5,23 +5,10 @@ import func_dataBase;
 import base_func;
 import base_pointer;
 
+
 #include <iostream>
 
 int main() {
-    // // Allocate memory for an integer
-    // int* ptr = (int*)malloc(sizeof(int)); // Explicit cast required in C++
-    // if (ptr == nullptr) {
-    //     std::cerr << "Memory allocation failed!" << std::endl;
-    //     return 1;
-    // }
-
-    // // Assign a value
-    // *ptr = 42;
-    // std::cout << "Value: " << *ptr << std::endl;
-
-    // // Free the allocated memory
-    // free(ptr);
-
     //  simple_vector<int> vec_int;
     //  vec_int.push_back(10);
     //  vec_int.push_back(20);
@@ -40,8 +27,7 @@ int main() {
     meta_funcData<int> data("int",num);
     int oNum = 64;
     meta_funcData<int> m_data("int", oNum);
-    int* a = data.get_data();
-    unique_pointer<int> ptr1; 
+    int ptr_int = *(m_data.get_data());
     //data_vec.push_back(meta_funcData<int>("int",32));
     //const char* funName = "func";
     //using BaseFunc = meta_func<int, int>;
