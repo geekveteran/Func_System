@@ -3,7 +3,7 @@ export module base_func;
 import simple_vector;
 import meta_funcData;
 import meta_func;
-
+import base_pointer;
 
 export template <typename Data>
 class add_func : public meta_func<Data, Data> {
