@@ -33,6 +33,13 @@ public:
 		return m_data;
 	}
 	
+	meta_funcData& operator=(const meta_funcData& other) {
+	    if (this != &other) {
+        // Copy members from `other` as needed
+    }
+		return *this;
+	}
+
 	// Overload + Operator
 	meta_funcData operator+(const meta_funcData& other) const {
 		// Combine the dataName and add the values of m_data
