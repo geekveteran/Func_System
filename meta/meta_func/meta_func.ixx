@@ -6,7 +6,6 @@ import base_pointer;
 
 export template <typename intPutData, typename outPutData>
 class meta_func {
-    using u_p = unique_pointer;
     using iData = meta_funcData<intPutData>;
     using oData = meta_funcData<outPutData>;
     using v_iData = simple_vector<iData>;
@@ -27,10 +26,10 @@ public:
           m_outPutData() {}
 
     // Parameterized constructor
-    meta_func(const char* funcName, const v_iData& inDataVec, const oData& outData)
+    meta_func(const char* funcName, v_iData& inDataVec, oData& outData)
         : m_funcName(funcName),
-          m_inPutData(u_p(inDataVec)),
-          m_outPutData(u_p(outData)) {}
+          m_inPutData(unique_pointer<v_iData>(&inDataVec)),
+          m_outPutData(unique_pointer<oData>(&outData)) {}
 
     // Destructor
     virtual ~meta_func() {

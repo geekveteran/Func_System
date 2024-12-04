@@ -31,9 +31,7 @@ public:
         }
 
     // Parameterized constructor
-    add_func(const char* funcName, 
-                      const v_data& iData, 
-                      const add_Data& oData)
+    add_func(const char* funcName, v_data& iData, add_Data& oData)
         : meta_func<Data, Data>(funcName, iData, oData) {}
     // Destructor
     ~add_func() {

@@ -31,15 +31,14 @@ int main() {
     data_vec.push_back(data);
     const char* funName = "func";
     using BaseFunc = meta_func<int, int>;
-    BaseFunc abb;
+    BaseFunc abb (funName, data_vec, data);
     std::cout<< abb.get_dataName();
-    unique_pointer<simple_vector<meta_funcData<int>>> u_pointe(&data_vec);
-    unique_pointer<meta_funcData<int>> u_data(&data);
+    abb.get_outPutData().release();
     using addFunc = add_func<int>;
-    // BaseFunc *add_Func = new addFunc (funName, u_pointe, u_data);
-    // add_Func->compute();
-    // std::cout<< add_Func->get_dataName();
-    // delete add_Func;
+    addFunc addF = addFunc(funName, data_vec, data);
+    BaseFunc* add_Func = &addF;
+    // add_Func.compute();
+    // std::cout<< add_Func.get_dataName();
     return 0;
 
 }

@@ -15,11 +15,10 @@ public:
 		m_data = u_dataPt(); 
 	}
 
-	explicit meta_funcData(const char* dataName, const Data& data)
+	explicit meta_funcData(const char* dataName, Data& data)
 	{
 		m_dataName = dataName;
-		Data * dataPointer = new Data(data);
-		m_data = u_dataPt(dataPointer);
+		m_data = u_dataPt(&data);
 	}
 
 	~meta_funcData() {
