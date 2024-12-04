@@ -1,23 +1,24 @@
 export module base_func;
 
 import simple_vector;
+import base_pointer;
 import meta_funcData;
 import meta_func;
-import base_pointer;
 
 export template <typename Data>
 class add_func : public meta_func<Data, Data> {
-    using m_funcData = meta_funcData<Data>;
+    using add_Data = meta_funcData<Data>;
+    using v_data = simple_vector<add_Data>;
 private:
     void add()
     {
-        simple_vector<m_funcData>* vec = this->get_intPutData();
-        m_funcData res = *(this->get_outPutData());
+        simple_vector<add_Data>* vec = this->get_intPutData();
+        add_Data res = *(this->get_outPutData());
         if (vec != nullptr)
         {
            for (auto it = vec->begin(); it != vec->end(); ++it)
            {
-                m_funcData& data = *it;
+                add_Data& data = *it;
                 res = res + data;
            }
         }
@@ -31,8 +32,8 @@ public:
 
     // Parameterized constructor
     add_func(const char* funcName, 
-                      const simple_vector<m_funcData>& iData, 
-                      const m_funcData& oData)
+                      const v_data& iData, 
+                      const add_Data& oData)
         : meta_func<Data, Data>(funcName, iData, oData) {}
     // Destructor
     ~add_func() {
