@@ -28,8 +28,8 @@ public:
 		return m_dataName;
 	}
 
-	u_dataPt& get_data()  {
-		return m_data;
+	Data& get_data()  {
+		return *(m_data.release());
 	}
 	
 	meta_funcData& operator=(const meta_funcData& other) {

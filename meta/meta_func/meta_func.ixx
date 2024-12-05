@@ -41,13 +41,13 @@ public:
     }
 
     // Accessor for input data
-    virtual v_iDataPt& get_intPutData()  {
-        return m_inPutData;
+    virtual v_iData& get_intPutData()  {
+        return *(m_inPutData.release());
     }
 
     // Accessor for output data
-    virtual o_dataPt& get_outPutData()  {
-        return m_outPutData;
+    virtual oData& get_outPutData()  {
+        return *(m_outPutData.release());
     }
 
     virtual void compute() {}
