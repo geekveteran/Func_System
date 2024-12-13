@@ -11,7 +11,6 @@ public:
 
     // Destructor
     ~unique_pointer() {
-        delete ptr;
     }
 
     // Delete copy constructor and copy assignment to ensure unique ownership

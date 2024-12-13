@@ -12,7 +12,7 @@ class meta_func {
     using i_dataPt = unique_pointer<iData>;
     using v_iDataPt = unique_pointer<simple_vector<iData>>;
     using o_dataPt = unique_pointer<oData>;
-    const char* funcName = "meta_func_name";
+    const char* FunName = "meta_func_name";
 private:
     const char* m_funcName;
     v_iDataPt m_inPutData; // Assuming simple_vector is user-defined
@@ -21,9 +21,12 @@ private:
 public:
     // Default constructor
     meta_func()
-        : m_funcName(funcName),
+        : m_funcName(FunName),
           m_inPutData(),
           m_outPutData() {}
+
+    meta_func(const char* funcName)
+        :m_funcName(funcName){}
 
     // Parameterized constructor
     meta_func(const char* funcName, v_iData& inDataVec, oData& outData)
@@ -33,6 +36,11 @@ public:
 
     // Destructor
     virtual ~meta_func() {
+    }
+
+    virtual void set_Data(v_iData& inDataVec, oData& outData) {
+        m_inPutData = unique_pointer<v_iData>(&inDataVec);
+        m_outPutData = unique_pointer<oData>(&outData);
     }
 
     // Accessor for function name

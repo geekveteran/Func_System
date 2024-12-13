@@ -14,6 +14,11 @@ public:
 		m_dataName = "None";
 		m_data = u_dataPt(); 
 	}
+	
+	explicit meta_funcData(const char* dataName)
+	{
+		m_dataName =dataName;
+	}
 
 	explicit meta_funcData(const char* dataName, Data& data)
 	{
@@ -24,6 +29,10 @@ public:
 	~meta_funcData() {
 	}
 	
+	void set_Data(Data& data) {
+		m_data = data;
+	}
+
 	const char* get_dataName() const{
 		return m_dataName;
 	}
