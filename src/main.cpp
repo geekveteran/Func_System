@@ -21,6 +21,7 @@ int main()
   vec_str.push_back("World");
   std::cout << "String vector size: " << vec_str.getSize() << std::endl;
   std::cout << "Element at index 0: " << vec_str[0] << std::endl;
+  printf("std");
 
   const char* funName = "func";
   using BaseFunc = meta_func<int, int>;

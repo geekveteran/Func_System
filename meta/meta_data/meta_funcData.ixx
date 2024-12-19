@@ -42,9 +42,9 @@ public:
 	}
 	
 	meta_funcData& operator=(const meta_funcData& other) {
-	    if (this != &other) {
-        // Copy members from `other` as needed
-    }
+		if (this != &other) {
+		// Copy members from `other` as needed
+	}
 		return *this;
 	}
 
@@ -57,25 +57,25 @@ public:
 		return meta_funcData(newName, combinedData);
 	}
 
-    void* operator new(size_t size) {
-        // Custom memory allocation logic (for example, using operator new directly)
-        void* ptr = ::operator new(size);  // Use global new
-        return ptr;
-    }
+	void* operator new(size_t size) {
+		// Custom memory allocation logic (for example, using operator new directly)
+		void* ptr = ::operator new(size);  // Use global new
+		return ptr;
+	}
 
 	void operator delete(void* ptr) {
 		if (!ptr)
 		{
-        ::operator delete(ptr);  // Use global delete
+		::operator delete(ptr);  // Use global delete
 		}
-    }
+	}
 
-	    void* operator new[](size_t size) {
-        void* ptr = ::operator new[](size);
-        return ptr;
-    }
+		void* operator new[](size_t size) {
+		void* ptr = ::operator new[](size);
+		return ptr;
+	}
 
-	    void operator delete[](void* ptr) {
-        ::operator delete[](ptr);
-    }	
+		void operator delete[](void* ptr) {
+		::operator delete[](ptr);
+	}	
 };
