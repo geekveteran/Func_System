@@ -35,5 +35,6 @@ int main()
   data_vec.push_back(data);
   abb.set_Data(data_vec, data);
   abb.get_dataName();
+  auto b =  [](int a, int b) { return a + b; };
   return 0;
 }
